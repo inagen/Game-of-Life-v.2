@@ -53,15 +53,6 @@ unsigned Field::getNumberOfNeighbors(unsigned x, unsigned y) const {
 	return numberOfNeighbors;  
 }
 
-void Field::calculateAndChangeCellStatus(unsigned x, unsigned y) {
-
-	auto numberOfNeighbors = this->getNumberOfNeighbors(x, y);
-	if (numberOfNeighbors > 3 || numberOfNeighbors < 2)
-		this->setCell(x, y, false);
-	else
-		this->setCell(x, y, true);
-}
-
 void Field::setRandomField() {
 
 	srand(time(NULL));

@@ -1,5 +1,5 @@
 #include "field.h"
-#include "tests/fieldtest.h"
+//#include "tests/fieldtest.h"
 #include "tests/fieldmanagertest.h"
 
 int main() {
