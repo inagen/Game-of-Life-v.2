@@ -40,15 +40,11 @@ unsigned Field::getNumberOfNeighbors(unsigned x, unsigned y) const {
 	x %= fieldWidth;
 	y %= fieldHeight;
 
-	if (this->getCell(x, y + 1) == true) numberOfNeighbors++;
-	if (this->getCell(x, y - 1) == true) numberOfNeighbors++;
-	if (this->getCell(x + 1, y) == true) numberOfNeighbors++;
-	if (this->getCell(x - 1, y) == true) numberOfNeighbors++;
-
-	if (this->getCell(x + 1, y + 1) == true) numberOfNeighbors++;
-	if (this->getCell(x + 1, y - 1) == true) numberOfNeighbors++;
-	if (this->getCell(x - 1, y + 1) == true) numberOfNeighbors++;
-	if (this->getCell(x - 1, y - 1) == true) numberOfNeighbors++;
+	for (int xs = -1; xs <= 1; ++xs) {
+  		for (int ys = -1; ys <= 1; ++ys) {
+    		if (this->getCell(x + xs, y + ys)) numberOfNeighbors++;
+  		}
+	}
 
 	return numberOfNeighbors;  
 }
