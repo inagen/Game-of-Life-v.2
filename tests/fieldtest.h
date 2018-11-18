@@ -26,10 +26,12 @@ void fieldTest() {
 	Field field;
 	setRandomField(field);
 	printField(field);
-
+	
+	srand(time(NULL));
 	int x = rand() % fieldWidth;
 	int y = rand() % fieldHeight;
 
 	std::cout << std::endl;
-	std::cout << x << ":" << y << " living neighbors: " << field.getNumberOfNeighbors(x, y) << std::endl;
+	std::cout << x << ":" << y << " living neighbors: " << std::endl;
+	std::cout << field.getNumberOfNeighbors(x, y) << std::endl;
 }

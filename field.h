@@ -12,6 +12,6 @@ private:
 public:
 	Field();
 	bool getCell(unsigned, unsigned) const;
-	void setCell(const unsigned&, const unsigned&, const bool&);
-	unsigned getNumberOfNeighbors(const unsigned&, const unsigned&) const;
+	void setCell(unsigned, unsigned, const bool&);
+	unsigned getNumberOfNeighbors(unsigned, unsigned) const;
 };
