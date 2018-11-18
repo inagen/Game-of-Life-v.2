@@ -3,7 +3,7 @@
 #include "tests/fieldmanagertest.h"
 
 int main() {
-	//fieldManagerTest2();
+	//fieldManagerTest();
 	//Renderer r;
 	//r.mainLoop();
 	return 0;

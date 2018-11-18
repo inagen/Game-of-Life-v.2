@@ -15,15 +15,6 @@ void printField(Field& field) {
 	}
 }
 
-void fieldManagerTest() {
-	FieldManager fieldManager;
-	fieldManager.field.setRandomField();
-	printField(fieldManager.field);
-	std::cout << std::endl << std::endl;
-	fieldManager.proccessField();
-	printField(fieldManager.field);
-}
-
 void fieldManagerTest2() {
 	FieldManager fieldManager;
 	fieldManager.field.setRandomField();
