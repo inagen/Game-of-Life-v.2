@@ -12,11 +12,12 @@ void FieldManager::proccessField() {
 
 void FieldManager::fieldReset() {
 	field = Field();
+	field.setRandomField();
 	fieldCopy = Field();
 }
 
 
-void FieldManager::calculateAndChangeCellStatus(unsigned x, unsigned y) {
+void FieldManager::calculateAndChangeCellStatus(int x, int y) {
 	auto numberOfNeighbors = field.getNumberOfNeighbors(x, y);
 	fieldCopy.setCell(x, y, numberOfNeighbors <= 3 && numberOfNeighbors >= 2);
 }

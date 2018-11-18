@@ -14,5 +14,5 @@ public:
 	void fieldReset();
 
 private:
-	void calculateAndChangeCellStatus(unsigned, unsigned);
+	void calculateAndChangeCellStatus(int, int);
 };

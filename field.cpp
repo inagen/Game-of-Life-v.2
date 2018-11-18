@@ -10,7 +10,7 @@ std::array<bool, fieldWidth*fieldHeight> Field::getField() const {
 	return this->field;
 }
 
-bool Field::getCell(unsigned x, unsigned y) const {
+bool Field::getCell(int x, int y) const {
 
 	if(x >= fieldWidth)
 		x -= fieldWidth;
@@ -27,14 +27,14 @@ bool Field::getCell(unsigned x, unsigned y) const {
 	return field[x + y * fieldWidth];
 }
 
-void Field::setCell(unsigned x, unsigned y, const bool& status) {
+void Field::setCell(int x, int y, const bool& status) {
 
 	x %= fieldWidth;
 	y %= fieldHeight;
 	field[x + y * fieldWidth] = status;
 }
 
-unsigned Field::getNumberOfNeighbors(unsigned x, unsigned y) const {
+unsigned Field::getNumberOfNeighbors(int x, int y) const {
 
 	unsigned numberOfNeighbors = 0;
 	x %= fieldWidth;
@@ -51,6 +51,7 @@ unsigned Field::getNumberOfNeighbors(unsigned x, unsigned y) const {
 
 void Field::setRandomField() {
 
+	field = std::array<bool, fieldWidth*fieldHeight> ();
 	srand(time(NULL));
 	int N = rand() % (fieldWidth * fieldHeight / 10);
 	for(int i(0); i < N; i++) {
