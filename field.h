@@ -11,7 +11,10 @@ private:
 
 public:
 	Field();
+	std::array<bool, fieldWidth*fieldHeight> getField() const;
 	bool getCell(unsigned, unsigned) const;
 	void setCell(unsigned, unsigned, const bool&);
 	unsigned getNumberOfNeighbors(unsigned, unsigned) const;
+	void calculateAndChangeCellStatus(unsigned, unsigned);
+	void setRandomField();
 };
