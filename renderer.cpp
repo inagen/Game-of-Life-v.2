@@ -13,8 +13,32 @@ void Renderer::mainLoop() {
 			if (event.type == sf::Event::Closed)
 				window->close();
 		}
+		draw();
+		usleep(50000);
+		fieldManager.proccessField();
 		window->clear();
-		///
-		window->display();
 	}
+}
+
+void Renderer::draw() {
+	for(int i(0); i < windowWidth; i++) {
+		for (int j(0); j < windowHeight; j++) {
+			int x = i;
+			int y = j;
+			x %= fieldWidth;
+			y %= fieldHeight;
+
+			shapes[x + y * fieldWidth] = sf::RectangleShape(sf::Vector2f(5, 5));
+			shapes[x + y * fieldWidth].setPosition(i*5, j*5);
+
+			if(fieldManager.field.getCell(x, y))
+				(shapes[x + y * fieldWidth]).setFillColor(sf::Color::White);
+			else 
+				(shapes[x + y * fieldWidth]).setFillColor(sf::Color::Black);
+
+			window->draw(shapes[x + y * fieldWidth]);
+		}
+	}
+	window->display();
+	window->clear();
 }

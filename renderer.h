@@ -1,12 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <unistd.h>
+#include <time.h>
 #include "fieldmanager.h"
 
 constexpr unsigned cellSize     = 5;
 constexpr unsigned windowWidth  = fieldWidth*(cellSize+1);
 constexpr unsigned windowHeight = fieldHeight*(cellSize+1);
-
-
 
 class Renderer {
 private:
@@ -16,4 +16,6 @@ private:
 public:
 	Renderer();
 	void mainLoop();
+private:
+	void draw();
 };
