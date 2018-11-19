@@ -1,8 +1,8 @@
 #pragma once
 #include <array>
 
-constexpr unsigned fieldWidth  = 100;
-constexpr unsigned fieldHeight = 100;
+constexpr unsigned fieldWidth  = 20;
+constexpr unsigned fieldHeight = 20;
 
 
 class Field {

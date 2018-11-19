@@ -19,5 +19,8 @@ void FieldManager::fieldReset() {
 
 void FieldManager::calculateAndChangeCellStatus(int x, int y) {
 	auto numberOfNeighbors = field.getNumberOfNeighbors(x, y);
-	fieldCopy.setCell(x, y, numberOfNeighbors <= 3 && numberOfNeighbors >= 2);
+	if(numberOfNeighbors < 2 || numberOfNeighbors > 3)
+		fieldCopy.setCell(x, y, false);
+	else if(numberOfNeighbors == 3)
+		fieldCopy.setCell(x, y, true);
 }

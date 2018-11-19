@@ -4,9 +4,9 @@
 #include <time.h>
 #include "fieldmanager.h"
 
-constexpr unsigned cellSize     = 5;
-constexpr unsigned windowWidth  = fieldWidth*(cellSize+1);
-constexpr unsigned windowHeight = fieldHeight*(cellSize+1);
+constexpr unsigned cellSize     = 10;
+constexpr unsigned windowWidth  = fieldWidth*(cellSize);
+constexpr unsigned windowHeight = fieldHeight*(cellSize);
 
 class Renderer {
 private:
