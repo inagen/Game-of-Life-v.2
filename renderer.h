@@ -1,7 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <unistd.h>
-#include <time.h>
 #include "fieldmanager.h"
 
 constexpr unsigned cellSize     = 10;
