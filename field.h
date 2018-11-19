@@ -11,7 +11,6 @@ private:
 
 public:
 	Field();
-	std::array<bool, fieldWidth*fieldHeight> getField() const;
 	bool getCell(int, int) const;
 	void setCell(int, int, const bool&);
 	unsigned getNumberOfNeighbors(int, int) const;

@@ -1,13 +1,13 @@
 #include "fieldmanager.h"
 
 void FieldManager::proccessField() {
-	fieldCopy = field;
+	fieldCopy = std::move(field);
 	for(int y(0); y < fieldWidth; y++) {
 		for(int x(0); x < fieldHeight; x++) {
 			calculateAndChangeCellStatus(x, y); 
 		}
 	}
-	field = fieldCopy;
+	field = std::move(fieldCopy);
 } 
 
 void FieldManager::fieldReset() {
