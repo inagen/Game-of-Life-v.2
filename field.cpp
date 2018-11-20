@@ -55,7 +55,7 @@ void Field::setRandomField() {
 
 	field = std::array<bool, fieldWidth*fieldHeight> ();
 	srand(time(NULL));
-	int N = rand() % (fieldWidth * fieldHeight / 5);
+	int N = rand() % (fieldWidth * fieldHeight / 10);
 	for(int i(0); i < N; i++) {
 		int x = rand() % fieldWidth;
 		int y = rand() % fieldHeight;

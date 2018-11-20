@@ -7,7 +7,6 @@ Renderer::Renderer() {
 	fieldManager.field.setRandomField();
 
 	isPause = false;
-	gridIsShown = true;
 
 	sf::Image image;
 	image.create(fieldWidth, fieldHeight, sf::Color(40, 40, 40));
