@@ -1,12 +1,12 @@
 #pragma once
 #include <array>
 
-constexpr unsigned fieldWidth  = 20;
-constexpr unsigned fieldHeight = 20;
+constexpr unsigned fieldWidth  = 128;
+constexpr unsigned fieldHeight = 128;
 
 
 class Field {
-private:
+public:
 	std::array<bool, fieldWidth*fieldHeight> field;
 
 public:

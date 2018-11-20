@@ -3,8 +3,15 @@
 
 Renderer::Renderer() {
 	window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "Game of Life");
+	window->setFramerateLimit(25);
 	fieldManager.field.setRandomField();
+
 	isPause = false;
+	gridIsShown = true;
+
+	sf::Image image;
+	image.create(fieldWidth, fieldHeight, sf::Color(40, 40, 40));
+	texture.loadFromImage(image, sf::IntRect());
 }
 
 void Renderer::mainLoop() {
@@ -31,6 +38,14 @@ void Renderer::mainLoop() {
 }
 
 void Renderer::draw() {
+	drawCell();
+	window->display();
+}
+
+void Renderer::drawCell() {
+	sf::Image image;
+	image.create(fieldWidth, fieldHeight, sf::Color(40, 40, 40));
+
 	for(int i(0); i < windowWidth; i++) {
 		for (int j(0); j < windowHeight; j++) {
 			int x = i;
@@ -38,16 +53,16 @@ void Renderer::draw() {
 			x %= fieldWidth;
 			y %= fieldHeight;
 
-			sf::RectangleShape cell(sf::Vector2f(cellSize, cellSize));
-			cell.setPosition(i*cellSize, j*cellSize);
-
 			if(fieldManager.field.getCell(x, y))
-				cell.setFillColor(sf::Color::White);
-			else 
-				cell.setFillColor(sf::Color(55, 55, 55));
-
-			window->draw(cell);
+				image.setPixel(x, y, sf::Color::White);
 		}
-	}
-	window->display();
+	} 
+	texture.update(image);
+
+	sf::Sprite sprite;
+	sprite.setTexture(texture);
+	sprite.setScale(cellSize, cellSize);
+	window->draw(sprite);
+
 }
+
