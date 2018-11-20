@@ -9,8 +9,8 @@ constexpr unsigned windowHeight = fieldHeight*(cellSize);
 class Renderer {
 private:
 	FieldManager fieldManager;
-	std::array<sf::RectangleShape, fieldWidth*fieldHeight> shapes;
 	sf::RenderWindow* window;
+	bool isPause;
 public:
 	Renderer();
 	void mainLoop();

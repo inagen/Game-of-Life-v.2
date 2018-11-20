@@ -37,11 +37,16 @@ unsigned Field::getNumberOfNeighbors(int x, int y) const {
 	x %= fieldWidth;
 	y %= fieldHeight;
 
-	for (int xs = -1; xs <= 1; ++xs) {
-  		for (int ys = -1; ys <= 1; ++ys) {
-    		if (getCell(x + xs, y + ys)) numberOfNeighbors++;
-  		}
-	}
+	if(getCell(x, y + 1)) numberOfNeighbors++;
+	if(getCell(x, y - 1)) numberOfNeighbors++;
+	if(getCell(x + 1, y)) numberOfNeighbors++;
+	if(getCell(x - 1, y)) numberOfNeighbors++;
+
+	if(getCell(x + 1, y + 1)) numberOfNeighbors++;
+	if(getCell(x + 1, y - 1)) numberOfNeighbors++;
+	if(getCell(x - 1, y - 1)) numberOfNeighbors++;
+	if(getCell(x - 1, y + 1)) numberOfNeighbors++;
+
 
 	return numberOfNeighbors;  
 }

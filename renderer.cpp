@@ -4,6 +4,7 @@
 Renderer::Renderer() {
 	window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "Game of Life");
 	fieldManager.field.setRandomField();
+	isPause = false;
 }
 
 void Renderer::mainLoop() {
@@ -14,12 +15,18 @@ void Renderer::mainLoop() {
 		{
 			if (event.type == sf::Event::Closed)
 				window->close();
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::F5))
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+				window->close();
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::F5) && !isPause)
 				fieldManager.field.setRandomField();
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::F4))
+				isPause = !isPause;
 		}
-		draw();
-		fieldManager.proccessField();
-		window->clear();
+		if (!isPause) {
+			draw();
+			fieldManager.proccessField();
+			window->clear(); 
+		}
 	}
 }
 
@@ -31,15 +38,15 @@ void Renderer::draw() {
 			x %= fieldWidth;
 			y %= fieldHeight;
 
-			shapes[x + y * fieldWidth] = sf::RectangleShape(sf::Vector2f(cellSize, cellSize));
-			shapes[x + y * fieldWidth].setPosition(i*cellSize, j*cellSize);
+			sf::RectangleShape cell(sf::Vector2f(cellSize, cellSize));
+			cell.setPosition(i*cellSize, j*cellSize);
 
 			if(fieldManager.field.getCell(x, y))
-				(shapes[x + y * fieldWidth]).setFillColor(sf::Color::White);
+				cell.setFillColor(sf::Color::White);
 			else 
-				(shapes[x + y * fieldWidth]).setFillColor(sf::Color(55, 55, 55));
+				cell.setFillColor(sf::Color(55, 55, 55));
 
-			window->draw(shapes[x + y * fieldWidth]);
+			window->draw(cell);
 		}
 	}
 	window->display();
