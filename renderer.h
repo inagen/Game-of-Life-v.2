@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "fieldmanager.h"
 
-constexpr unsigned cellSize     = 5;
+constexpr unsigned cellSize     = 10;
 constexpr unsigned windowWidth  = fieldWidth*(cellSize);
 constexpr unsigned windowHeight = fieldHeight*(cellSize);
 
@@ -17,6 +17,6 @@ public:
 	void mainLoop();
 private:
 	void mouseClick(int, int);
-	void drawCell();
+	void drawCells();
 	void draw();
 };

@@ -36,19 +36,19 @@ void Renderer::mainLoop() {
 					mouseClick(event.mouseButton.x, event.mouseButton.y);
 		}
 		if (!isPause) {
-			draw();
 			fieldManager.proccessField();
+			draw();
 			window->clear(); 
 		}
 	}
 }
 
 void Renderer::draw() {
-	drawCell();
+	drawCells();
 	window->display();
 }
 
-void Renderer::drawCell() {
+void Renderer::drawCells() {
 	sf::Image image;
 	image.create(fieldWidth, fieldHeight, sf::Color(40, 40, 40));
 
@@ -82,7 +82,6 @@ void Renderer::mouseClick(int x, int y) {
 
 	bool currentCellStatus = fieldManager.field.getCell(cellX, cellY);
 	fieldManager.field.setCell(cellX, cellY, !currentCellStatus);
-
 	draw();
 }
 
