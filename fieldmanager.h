@@ -11,7 +11,8 @@ private:
 public:
 	FieldManager() : field(), fieldCopy() {};
 	void proccessField();
-	void fieldReset();
+	void setRandomField();
+	void resetField();
 
 private:
 	void calculateAndChangeCellStatus(int, int);

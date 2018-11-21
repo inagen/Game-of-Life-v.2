@@ -10,12 +10,15 @@ void FieldManager::proccessField() {
 	field.field = fieldCopy.field;
 } 
 
-void FieldManager::fieldReset() {
+void FieldManager::setRandomField() {
 	field = Field();
 	field.setRandomField();
-	fieldCopy = Field();
 }
 
+void FieldManager::resetField() {
+	field = Field();
+	fieldCopy = Field();
+}
 
 void FieldManager::calculateAndChangeCellStatus(int x, int y) {
 	auto numberOfNeighbors = field.getNumberOfNeighbors(x, y);

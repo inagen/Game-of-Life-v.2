@@ -16,6 +16,7 @@ public:
 	Renderer();
 	void mainLoop();
 private:
+	void mouseClick(int, int);
 	void drawCell();
 	void draw();
 };
