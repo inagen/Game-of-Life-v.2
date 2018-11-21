@@ -1,6 +1,5 @@
 #include "renderer.h"
 #include <time.h>
-#include <iostream>
 
 Renderer::Renderer() {
 	window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), "Game of Life");
